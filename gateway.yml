@@ -6,8 +6,8 @@ spring:
           enabled: true
           lower-case-service-id: true
       routes:
-        - id: clinic_service
-          uri: http://clinic-service:8001
+        - id: clinic-service
+          uri: lb://clinic-service
           predicates:
             - Path=/clinic/**
           filters:
@@ -15,8 +15,9 @@ spring:
               args:
                 name: clinicService
                 fallbackUri: forward:/fallback/clinic
+
         - id: users-service
-          uri: http://users-service:8002
+          uri: lb://users-service
           predicates:
             - Path=/users/**
           filters:
@@ -24,10 +25,3 @@ spring:
               args:
                 name: usersService
                 fallbackUri: forward:/fallback/users
-management:
-  tracing:
-    sampling:
-      probability: 1.0
-  zipkin:
-    tracing:
-      endpoint: http://zipkin-service:9411/api/v2/spans
