@@ -25,3 +25,8 @@ spring:
               args:
                 name: usersService
                 fallbackUri: forward:/fallback/users
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
