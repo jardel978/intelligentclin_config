@@ -1,6 +1,4 @@
 spring:
-  zipkin:
-    base-url: http://zipkin_service:9411/
   cloud:
     gateway:
       discovery:
@@ -11,12 +9,12 @@ spring:
         - id: clinic_service
           uri: http://clinic_service:8001
           predicates:
-            - Path=/medical-records/**
+            - Path=/clinic/**
           filters:
             - name: CircuitBreaker
               args:
-                name: medicalRecorsService
-                fallbackUri: forward:/fallback/medical-records
+                name: clinicService
+                fallbackUri: forward:/fallback/clinic
         - id: users-service
           uri: http://users_service:8002
           predicates:
@@ -34,3 +32,11 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://eureka_service:8761/eureka/
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: http://zipkin_service:9411/api/v2/spans

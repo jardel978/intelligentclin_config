@@ -26,6 +26,12 @@ queue:
     name: CatalogQueue
 
 management:
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: http://zipkin_service:9411/api/v2/spans
   info:
     env:
       enabled: true
