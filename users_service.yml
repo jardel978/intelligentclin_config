@@ -4,8 +4,6 @@ server:
     context-path: /users/
 
 spring:
-  zipkin:
-    base-url: http://zipkin_service:9411/
   datasource:
     url: jdbc:mysql://mysql:3306/users
     username: users
@@ -24,6 +22,12 @@ mensagem: hello world
 queue:
   api-catalog:
     name: CatalogQueue
+
+springdoc:
+  show-actuator: true
+  swagger-ui:
+    groups-order: DESC
+    disable-swagger-default-url: true
 
 management:
   tracing:
