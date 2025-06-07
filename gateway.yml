@@ -1,0 +1,36 @@
+spring:
+  zipkin:
+    base-url: http://zipkin_service:9411/
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: clinic_service
+          uri: http://clinic_service:8001
+          predicates:
+            - Path=/medical-records/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: medicalRecorsService
+                fallbackUri: forward:/fallback/medical-records
+        - id: users-service
+          uri: http://users_service:8002
+          predicates:
+            - Path=/users/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: usersService
+                fallbackUri: forward:/fallback/users
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://eureka_service:8761/eureka/

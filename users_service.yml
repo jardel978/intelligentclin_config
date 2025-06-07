@@ -1,0 +1,40 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /users/
+
+spring:
+  zipkin:
+    base-url: http://zipkin_service:9411/
+  datasource:
+    url: jdbc:mysql://mysql:3306/users
+    username: users
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    format-sql: true
+  
+mensagem: hello world
+
+queue:
+  api-catalog:
+    name: CatalogQueue
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+info:
+  name: Servico de usuarios.
+  author: Jardel S. Oliveira
+  mail: jardeloliver197@gmail.com
+  severity: Alto
