@@ -27,11 +27,11 @@ spring:
                   args:
                     name: usersService
                     fallbackuri: forward:/fallback/users
-    security:
-      oauth2:
-        resourceserver:
-          jwt:
-            jwk-set-uri: http://users-service/users/.well-known/jwks.json
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://users-service/users/.well-known/jwks.json
 management:
   tracing:
     sampling:
