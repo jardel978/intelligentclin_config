@@ -20,11 +20,11 @@ spring:
       ddl-auto: update
     show-sql: true
     format-sql: true
-  rabbitmq:
-    host: rabbitmq
-    port: 5672
-    username: guest
-    password: guest
+  # rabbitmq:
+  #   host: rabbitmq
+  #   port: 5672
+  #   username: guest
+  #   password: guest
   security:
     oauth2:
       resourceserver:

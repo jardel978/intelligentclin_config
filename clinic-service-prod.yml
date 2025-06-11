@@ -2,11 +2,11 @@ spring:
   data:
     mongodb:
       uri: mongodb://clinicdb:27017/clinicdb
-  rabbitmq:
-    host: rabbitmq
-    port: 5672
-    username: guest
-    password: guest
+  # rabbitmq:
+  #   host: rabbitmq
+  #   port: 5672
+  #   username: guest
+  #   password: guest
   security:
       oauth2:
         resourceserver:
