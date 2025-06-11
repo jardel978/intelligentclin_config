@@ -11,13 +11,10 @@ spring:
       oauth2:
         resourceserver:
           jwt:
-            jwk-set-uri: http://users-service/.well-known/jwks.json
+            jwk-set-uri: http://users-service/users/.well-known/jwks.json
 
-mensagem: hello catalog
-
-queue:
-  api-catalog:
-    name: CatalogQueue
+# queue:
+#   name: name
   
 springdoc:
   show-actuator: true

@@ -25,12 +25,14 @@ spring:
     port: 5672
     username: guest
     password: guest
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8081/users/.well-known/jwks.json
   
-mensagem: hello world
-
-queue:
-  api-catalog:
-    name: CatalogQueue
+# queue:
+#   name: name
 
 springdoc:
   show-actuator: true
