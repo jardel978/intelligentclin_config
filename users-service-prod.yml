@@ -20,6 +20,7 @@ spring:
   sql:
       init:
         mode: always  
+        data-locations: classpath:data.sql
   # rabbitmq:
   #   host: rabbitmq
   #   port: 5672
