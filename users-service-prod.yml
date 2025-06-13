@@ -18,9 +18,9 @@ spring:
     show-sql: true
     format-sql: true
   sql:
-      init:
-        mode: always  
-        data-locations: classpath:data.sql
+    init:
+      mode: always  
+      data-locations: classpath:data.sql
   # rabbitmq:
   #   host: rabbitmq
   #   port: 5672
