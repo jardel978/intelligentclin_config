@@ -19,7 +19,6 @@ spring:
     format-sql: true
   sql:
     init:
-      mode: always  
       data-locations: classpath:data.sql
   # rabbitmq:
   #   host: rabbitmq
