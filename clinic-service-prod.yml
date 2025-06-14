@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://clinicdb:27017/clinicdb
+      uri: mongodb://admin:admin123@clinicdb:27017/clinicdb?authSource=admin
   # rabbitmq:
   #   host: rabbitmq
   #   port: 5672
